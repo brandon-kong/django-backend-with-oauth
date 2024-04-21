@@ -60,3 +60,33 @@ docker-compose up
 ## Usage
 
 The API endpoints are available at `http://localhost:8000/api/v1/`. The admin panel is available at `http://localhost:8000/admin/`, and the dj-rest-auth endpoints are available at `http://localhost:8000/auth/`.
+
+To create a new client application for OAuth, go to the admin panel and create a new `Application`. The `Client id` and `Client secret` will be generated automatically.
+
+To authenticate a user, send a POST request to `http://localhost:8000/auth/login/` with the following JSON body:
+
+```json
+{
+    "email": "your_email",
+    "password": "your_password"
+}
+```
+
+This will return an access token that can be used to authenticate future requests. Send the access token in the `Authorization` header with the value
+
+```
+Bearer your_access_token
+```
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Bugs, Security Vulnerabilities, and Contributing
+
+If you find a bug or security vulnerability, please don't hesitate to create an issue or a pull request. Any contributions are welcome!
+
+## Built by
+
+This project was built by [Brandon Kong](https://github.com/brandon-kong).
+
