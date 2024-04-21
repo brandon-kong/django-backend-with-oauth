@@ -23,9 +23,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('api/v1/application/', include('core.application.urls')),
-    path('api/v1/auth/', include('core.user.urls')),
-    path('api/v1/auth/', include('dj_rest_auth.urls')),
-    path('api/v1/auth/registration/', include('dj_rest_auth.registration.urls')),
-    path('api/v1/auth/knox/', include('knox.urls')),
+    
+    path('auth/', include('core.user.urls')),
+    path('auth/', include('dj_rest_auth.urls')),
+    path('auth/registration/', include('dj_rest_auth.registration.urls')),
+    path('auth/knox/', include('knox.urls')),
     # Local apps
 ]
