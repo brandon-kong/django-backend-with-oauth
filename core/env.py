@@ -8,6 +8,7 @@ env = environ.Env(
     # Debugging
     DEBUG       = (bool, True),
     ALLOWED_HOSTS = (list, []),
+    CORS_ORIGIN_WHITELIST = (list, []),
 )
 
 environ.Env.read_env(os.path.join(BASE_DIR, '.env.local'))
