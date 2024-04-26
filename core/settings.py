@@ -34,8 +34,7 @@ SITE_ID = 1
 INSTALLED_APPS = [
     # Local apps
 
-    'core.application',
-    'core.auth',
+    'core.oauth',
     'core.user',
 
     'corsheaders',
@@ -177,6 +176,7 @@ AUTH_USER_MODEL = "core_user.User"
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'dj_rest_auth.jwt_auth.JWTCookieAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
         'knox.auth.TokenAuthentication',
 
     ),
@@ -198,7 +198,7 @@ SIMPLE_JWT = {
     'SIGNING_KEY': SECRET_KEY,
     'ALGORITHM': 'HS256',
     'ROTATE_REFRESH_TOKENS': True,
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=3),
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=20),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
     'BLACKLIST_AFTER_ROTATION': True,
 
@@ -246,7 +246,7 @@ REST_AUTH = {
 
     'LOGIN_SERIALIZER': 'core.user.serializers.login.UserLoginSerializer',
     'REGISTER_SERIALIZER': 'core.user.serializers.register.UserRegisterSerializer',
-    'JWT_TOKEN_CLAIMS_SERIALIZER': 'core.auth.serializers.tokens.TokenObtainPairSerializer'
+    'JWT_TOKEN_CLAIMS_SERIALIZER': 'core.user.serializers.tokens.TokenObtainPairSerializer'
 
 }
 
