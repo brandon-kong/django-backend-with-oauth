@@ -35,7 +35,7 @@ INSTALLED_APPS = [
     # Local apps
 
     'core.application',
-    'core.auth',
+    'core.oauth',
     'core.user',
 
     'corsheaders',
@@ -246,7 +246,7 @@ REST_AUTH = {
 
     'LOGIN_SERIALIZER': 'core.user.serializers.login.UserLoginSerializer',
     'REGISTER_SERIALIZER': 'core.user.serializers.register.UserRegisterSerializer',
-    'JWT_TOKEN_CLAIMS_SERIALIZER': 'core.auth.serializers.tokens.TokenObtainPairSerializer'
+    'JWT_TOKEN_CLAIMS_SERIALIZER': 'core.user.serializers.tokens.TokenObtainPairSerializer'
 
 }
 
